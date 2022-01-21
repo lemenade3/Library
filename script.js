@@ -1,6 +1,25 @@
-let myLibrary = [];
+let myLibrary = [
+    {
+        name : "The Hobbit",
+        author : "J.R.R Tolkien",
+        pages : 300,
+        read : "yes",
+    },
+    {
+        name : "Harry Potter",
+        author : "J.K Rowling",
+        pages : 564,
+        read : "yes",
+    },
+    {
+        name : "Frankestein",
+        author : "Mary Shelley",
+        pages : 274,
+        read : "no",
+    }
+];
 
-body = document.querySelector('body');
+library = document.querySelector('#library');
 
 function Book(name, author, pages, read, description) {
     this.name = name;
@@ -25,7 +44,7 @@ function addToLibrary(name) {
     myLibrary.push(name);
 };
 
-addBook = document.querySelector('button');
+addBook = document.querySelector('#newCard');
 
 addBook.addEventListener('click', function() {
     addToLibrary();
@@ -33,6 +52,7 @@ addBook.addEventListener('click', function() {
 });
 
 function displayLibrary () {
+    library.textContent = '';
     for (let i = 0; i < myLibrary.length; i++) {
         const card = document.createElement('div');
         card.setAttribute('class', 'card');
@@ -58,6 +78,8 @@ function displayLibrary () {
         storedDescription.textContent = myLibrary[i].description;
 
         card.append(storedName, storedAuthor, storedPages, storedRead, storedDescription);
-        body.append(card);
+        library.append(card);
     };
 };
+
+displayLibrary();

@@ -1,0 +1,23 @@
+body {
+    background-color: rgb(251, 234, 212);
+    margin: 0px;
+}
+
+#header {
+    display: flex;
+    justify-content: space-between;
+    background-color: #FBA92C;
+}
+
+#library {
+    display: flex;
+}
+
+.card {
+    background-color: #9E9E9E;
+    margin: 20px;
+    height: 180px;
+    width: 230px;
+    border-radius: 20px;
+    padding: 10px;
+}

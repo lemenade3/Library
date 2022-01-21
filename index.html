@@ -6,10 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library App</title>
     <script defer src='script.js'></script>
-    <link href="styles.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <label for="name">Name:</label><br>
+    <div id="header">
+        <h1>Library</h1>
+        <input type="text" placeholder="Search..">
+        <button id="menu">Menu</button> 
+    </div>
+    <div id="stats"></div>
+    <div id="buffer"></div>
+    <div id="library"></div>
+    <button id="newCard">+</button>
+
+    
+</body>
+</html>
+
+<label for="name">Name:</label><br>
     <input type="text" id="name" name="name"><br>
     <label for="author">Author:</label><br>
     <input type="text" id="author" name="author"><br>
@@ -19,8 +33,3 @@
     <input type="text" id="read" name="read"><br>
     <label for="description">description:</label><br>
     <input type="text" id="description" name="description"><br>
-    <button>Add Book</button>
-
-    
-</body>
-</html>
