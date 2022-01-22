@@ -67,7 +67,7 @@ function displayLibrary () {
 
         const storedPages = document.createElement('div');
         storedPages.setAttribute('class', 'storedPages');
-        storedPages.textContent = myLibrary[i].pages;
+        storedPages.textContent = `Pages: ${myLibrary[i].pages}`;
 
         const storedRead = document.createElement('div');
         storedRead.setAttribute('class', 'storedRead');
