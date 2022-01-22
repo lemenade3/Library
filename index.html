@@ -4,15 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Library App</title>
+    <title>Library</title>
     <script defer src='script.js'></script>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div id="header">
         <h1>Library</h1>
-        <input type="text" placeholder="Search.." id="search">
-        <button id="menu">Menu</button> 
+        <input type="text" placeholder="Search... (Doesn't currently do anything)" id="search">
+        <button id="menu">
+            <div class="hamburger"></div>
+            <div class="hamburger"></div>
+            <div class="hamburger"></div>
+        </button> 
     </div>
     <div id="second">
         <h2>My Books</h2>
@@ -27,17 +31,26 @@
     <div id="library"></div>
     <button id="newCard">+</button>
 
+    <div id="cardModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <input type="text" placeholder='Name...' class='input' id="name" name="name"><br>
+            <input type="text" placeholder='Author...' class='input' id="author" name="author"><br>
+            <input type="number" placeholder='Pages' class='input' id="pages" name="pages"><br>
+            <div id="bottomModal">
+                <div class="readSelector">
+                    <label class="switch" id="read">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                    <div class="readText">Read?</div>
+                </div>
+                <button id="commitCard">Add Book</button>
+            </div>
+            
+        </div>
+    </div>
     
 </body>
 </html>
 
-<label for="name">Name:</label><br>
-    <input type="text" id="name" name="name"><br>
-    <label for="author">Author:</label><br>
-    <input type="text" id="author" name="author"><br>
-    <label for="pages">Pages:</label><br>
-    <input type="text" id="pages" name="pages"><br>
-    <label for="read">Read:</label><br>
-    <input type="text" id="read" name="read"><br>
-    <label for="description">description:</label><br>
-    <input type="text" id="description" name="description"><br>

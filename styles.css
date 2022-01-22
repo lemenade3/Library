@@ -37,6 +37,21 @@ h2 {
     border-radius: 1em;
     border-style: none;
     padding: 5px;
+    align-self: center;
+}
+
+#menu {
+    margin-right: 25px;
+    border-style: none;
+    background-color: #FBA92C;
+}
+
+.hamburger {
+    width: 40px;
+    height: 6px;
+    margin: 8px;
+    background-color: #FFFFFF;
+    border-radius: 2.5px;
 }
 
 #library {
@@ -50,6 +65,8 @@ h2 {
     width: 230px;
     border-radius: 20px;
     padding: 10px;
+    display: flex;
+    flex-direction: column;
 }
 
 #stats {
@@ -102,3 +119,129 @@ h2 {
     margin-left: 15px;
     margin-top: 50px;
 }
+
+.readSelector {
+    display: flex;
+    align-items: center;
+    align-self: flex-end;
+}
+
+.readText {
+    color: #FFFFFF;
+    margin-right: 20px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(165, 165, 165);
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #40be3c;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #40be3c;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+  .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgb(0,0,0);
+      background-color: rgb(0,0,0,0.4);
+  }
+
+  .modal-content {
+      background-color: #FBA92C;
+      margin: 15% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 400px;
+      height: 250px;
+      border-radius: 20px;
+  }
+
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 40px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+
+.input {
+    height: 15px;
+    border-radius: 1em;
+    border-style: none;
+    width: 250px;
+    margin: 15px;
+    padding: 6px;
+}
+
+#pages {
+    width: 75px;
+}
+
+#read {
+    margin-left: 15px;
+}
+

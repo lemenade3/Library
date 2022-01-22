@@ -3,19 +3,19 @@ let myLibrary = [
         name : "The Hobbit",
         author : "J.R.R Tolkien",
         pages : 300,
-        read : "yes",
+        read : "Read",
     },
     {
         name : "Harry Potter",
         author : "J.K Rowling",
         pages : 564,
-        read : "yes",
+        read : "Read",
     },
     {
         name : "Frankestein",
         author : "Mary Shelley",
         pages : 274,
-        read : "no",
+        read : "Not Read",
     }
 ];
 
@@ -26,7 +26,6 @@ function Book(name, author, pages, read, description) {
     this.author = author;
     this.pages = pages;
     this.read = read;
-    this.description = description;
     this.info = function() {
         let info = `${name} by ${author} has ${pages}, you have ${read} this.`;
         return info;
@@ -38,18 +37,30 @@ function addToLibrary(name) {
     let author = document.querySelector('#author').value;
     let pages = document.querySelector('#pages').value;
     let read = document.querySelector('#read').value;
-    let description = document.querySelector('#description').value;
-    
-    name = new Book(name, author, pages, read, description)
+    name = new Book(name, author, pages, read)
     myLibrary.push(name);
 };
 
-addBook = document.querySelector('#newCard');
+let modal = document.querySelector('#cardModal');
+
+let addBook = document.querySelector('#newCard');
+
+let span = document.querySelector('.close');
 
 addBook.addEventListener('click', function() {
-    addToLibrary();
-    displayLibrary();
+    modal.style.display = 'block';
 });
+
+span.addEventListener('click', function () {
+    modal.style.display = 'none';
+});
+
+window.addEventListener('click', function (event) {
+    if (event.target == modal) {
+        modal.style.display = 'none';
+    }
+});
+
 
 function displayLibrary () {
     library.textContent = '';
@@ -69,17 +80,40 @@ function displayLibrary () {
         storedPages.setAttribute('class', 'storedPages');
         storedPages.textContent = `Pages: ${myLibrary[i].pages}`;
 
-        const storedRead = document.createElement('div');
-        storedRead.setAttribute('class', 'storedRead');
-        storedRead.textContent = myLibrary[i].read;
+        const storedRead = document.createElement('label');
+        storedRead.setAttribute('class', 'switch');
+        
+        const checkbox = document.createElement('input');
+        checkbox.setAttribute('type', 'checkbox');
+        const sliderRound = document.createElement('span');
+        sliderRound.setAttribute('class', 'slider round');
 
-        const storedDescription = document.createElement('div');
-        storedDescription.setAttribute('class', 'storedDescription');
-        storedDescription.textContent = myLibrary[i].description;
+        const readText = document.createElement('div');
+        readText.setAttribute('class', 'readText');
+        readText.textContent = myLibrary[i].read;
 
-        card.append(storedName, storedAuthor, storedPages, storedRead, storedDescription);
+        const readSelector = document.createElement('div');
+        readSelector.setAttribute('class', 'readSelector');
+
+        storedRead.append(checkbox, sliderRound);
+        readSelector.append(readText, storedRead);
+
+        card.append(storedName, storedAuthor, storedPages, readSelector);
         library.append(card);
     };
 };
+
+let newName = document.querySelector("#name");
+
+let commitCard = document.querySelector('#commitCard');
+commitCard.addEventListener('click', function () {
+    addToLibrary();
+    displayLibrary();
+    modal.style.display = 'none';
+    newName.value = '';
+    author.value = '';
+    pages.value = '';
+    read.value = '';
+});
 
 displayLibrary();
