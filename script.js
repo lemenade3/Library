@@ -3,40 +3,34 @@ let myLibrary = [
         name : "The Hobbit",
         author : "J.R.R Tolkien",
         pages : 300,
-        read : "Read",
+        read : true,
     },
     {
         name : "Harry Potter",
         author : "J.K Rowling",
         pages : 564,
-        read : "Read",
+        read : true,
     },
     {
         name : "Frankestein",
         author : "Mary Shelley",
         pages : 274,
-        read : "Not Read",
+        read : false,
     }
 ];
 
-library = document.querySelector('#library');
-
-function Book(name, author, pages, read, description) {
+function Book(name, author, pages, read) {
     this.name = name;
     this.author = author;
     this.pages = pages;
     this.read = read;
-    this.info = function() {
-        let info = `${name} by ${author} has ${pages}, you have ${read} this.`;
-        return info;
-    };
 };
 
 function addToLibrary(name) {
     name = document.querySelector('#name').value;
     let author = document.querySelector('#author').value;
     let pages = document.querySelector('#pages').value;
-    let read = document.querySelector('#read').value;
+    let read = document.querySelector('#read').checked;
     name = new Book(name, author, pages, read)
     myLibrary.push(name);
 };
@@ -61,12 +55,23 @@ window.addEventListener('click', function (event) {
     }
 });
 
+let removeButton;
 
 function displayLibrary () {
     library.textContent = '';
     for (let i = 0; i < myLibrary.length; i++) {
         const card = document.createElement('div');
         card.setAttribute('class', 'card');
+        card.setAttribute('id', myLibrary[i])
+
+        removeButton = document.createElement('button');
+        removeButton.setAttribute('class', 'removeButton');
+        removeButton.textContent = "x";
+
+        removeButton.addEventListener('click', function () {
+            myLibrary.splice(myLibrary[i], 1);
+            displayLibrary();
+        });
 
         const storedName = document.createElement('div');
         storedName.setAttribute('class', 'storedName');
@@ -80,25 +85,23 @@ function displayLibrary () {
         storedPages.setAttribute('class', 'storedPages');
         storedPages.textContent = `Pages: ${myLibrary[i].pages}`;
 
-        const storedRead = document.createElement('label');
-        storedRead.setAttribute('class', 'switch');
-        
-        const checkbox = document.createElement('input');
-        checkbox.setAttribute('type', 'checkbox');
+        const storedRead = document.createElement('input');
+
+        const switchLabel = document.createElement('label');
+        switchLabel.setAttribute('class', 'switch');
+
         const sliderRound = document.createElement('span');
         sliderRound.setAttribute('class', 'slider round');
 
-        const readText = document.createElement('div');
-        readText.setAttribute('class', 'readText');
-        readText.textContent = myLibrary[i].read;
+        storedRead.setAttribute('type', 'checkbox');
+        storedRead.setAttribute('class', 'storedRead');
 
-        const readSelector = document.createElement('div');
-        readSelector.setAttribute('class', 'readSelector');
+        const checkRead = myLibrary[i].read;
+        storedRead.checked = checkRead;
 
-        storedRead.append(checkbox, sliderRound);
-        readSelector.append(readText, storedRead);
+        switchLabel.append(storedRead, sliderRound);
 
-        card.append(storedName, storedAuthor, storedPages, readSelector);
+        card.append(removeButton, storedName, storedAuthor, storedPages, switchLabel);
         library.append(card);
     };
 };
@@ -113,7 +116,7 @@ commitCard.addEventListener('click', function () {
     newName.value = '';
     author.value = '';
     pages.value = '';
-    read.value = '';
+    read.checked = false;
 });
 
 displayLibrary();
