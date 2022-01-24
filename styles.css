@@ -67,6 +67,7 @@ h2 {
     padding: 10px;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
 }
 
 #stats {
@@ -105,19 +106,23 @@ h2 {
     font-size: 1.5em;
     margin-top: 15px;
     margin-left: 15px;
+    inline-size: 150px;
+    overflow-wrap: break-word;
 }
 
 .storedAuthor {
     color: #FFFFFF;
     font-size: 1.25em;
     margin-left: 15px;
+    inline-size: 150px;
+    overflow-wrap: break-word;
 }
 
 .storedPages {
     color: #FFFFFF;
     font-size: 1em;
     margin-left: 15px;
-    margin-top: 50px;
+    justify-self: flex-end;
 }
 
 .switch {
@@ -211,6 +216,7 @@ h2 {
     display: inline-block;
     width: 60px;
     height: 34px;
+    align-self: flex-end;
   }
   
   /* Hide default HTML checkbox */
@@ -274,4 +280,19 @@ h2 {
 
 #select {
     margin-bottom: 20px;
+}
+
+.removeButton {
+    background-color: #565656;
+    border-radius: 10px;
+    border-style: none;
+    font-size: 16px;
+    color: #FFFFFF;
+    height: 2em;
+    position: relative;
+}
+
+.topCard {
+    display: flex;
+    justify-content: space-between;
 }

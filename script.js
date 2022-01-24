@@ -1,23 +1,4 @@
-let myLibrary = [
-    {
-        name : "The Hobbit",
-        author : "J.R.R Tolkien",
-        pages : 300,
-        read : true,
-    },
-    {
-        name : "Harry Potter",
-        author : "J.K Rowling",
-        pages : 564,
-        read : true,
-    },
-    {
-        name : "Frankestein",
-        author : "Mary Shelley",
-        pages : 274,
-        read : false,
-    }
-];
+let myLibrary = [];
 
 function Book(name, author, pages, read) {
     this.name = name;
@@ -60,16 +41,25 @@ let removeButton;
 function displayLibrary () {
     library.textContent = '';
     for (let i = 0; i < myLibrary.length; i++) {
+
+        function changeRead () {
+            if (myLibrary[i].read == true) {
+                myLibrary[i].read = false;
+            } else if (myLibrary[i].read == false) {
+                myLibrary[i].read = true;
+            };
+        };
+
         const card = document.createElement('div');
         card.setAttribute('class', 'card');
-        card.setAttribute('id', myLibrary[i])
+        card.setAttribute('id', i)
 
         removeButton = document.createElement('button');
         removeButton.setAttribute('class', 'removeButton');
-        removeButton.textContent = "x";
+        removeButton.textContent = 'Delete';
 
         removeButton.addEventListener('click', function () {
-            myLibrary.splice(myLibrary[i], 1);
+            myLibrary.splice(i, 1);
             displayLibrary();
         });
 
@@ -95,13 +85,20 @@ function displayLibrary () {
 
         storedRead.setAttribute('type', 'checkbox');
         storedRead.setAttribute('class', 'storedRead');
+        storedRead.addEventListener('change', function() {
+            changeRead();
+        });
 
         const checkRead = myLibrary[i].read;
         storedRead.checked = checkRead;
 
+        const topCard = document.createElement('div');
+        topCard.setAttribute('class', 'topCard')
+        topCard.append(storedName, removeButton);
+
         switchLabel.append(storedRead, sliderRound);
 
-        card.append(removeButton, storedName, storedAuthor, storedPages, switchLabel);
+        card.append(topCard, storedAuthor, storedPages, switchLabel);
         library.append(card);
     };
 };
