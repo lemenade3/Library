@@ -5,6 +5,7 @@ body {
     display: flex;
     flex-direction: column;
     font-family: sans-serif;
+    color: #FFFFFF;
 }
 
 #header {
@@ -19,16 +20,7 @@ body {
 
 h1 {
     font-size: 60px;
-    margin: 0px;
     margin-left: 30px;
-    color: #FFFFFF;
-}
-
-h2 {
-    color: #565656;
-    font-size: 50px;
-    margin-left: 80px;
-    margin-top: 140px;
 }
 
 #search {
@@ -37,7 +29,6 @@ h2 {
     border-radius: 1em;
     border-style: none;
     padding: 5px;
-    align-self: center;
 }
 
 #menu {
@@ -54,8 +45,16 @@ h2 {
     border-radius: 2.5px;
 }
 
+h2 {
+    color: #565656;
+    font-size: 50px;
+    margin-left: 80px;
+    margin-top: 140px;
+}
+
 #library {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .card {
@@ -68,18 +67,7 @@ h2 {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-}
-
-#stats {
-    background-color: #565656;
-    width: 250px;
-    height: 120px;
-    border-radius: 20px;
-    padding: 10px;
-    align-self: flex-end;
-    margin-top: 110px;
-    margin-right: 50px;
-    color: #FFFFFF;
+    flex: 1, 0;
 }
 
 #newCard {
@@ -95,33 +83,22 @@ h2 {
     left: 30px;
 }
 
-#second {
-    display: flex;
-    justify-content: space-between;
-}
-
 .storedName {
-    color: #FFFFFF;
     font-weight: bold;
     font-size: 1.5em;
-    margin-top: 15px;
-    margin-left: 15px;
     inline-size: 150px;
+    margin-top: 15px;
     overflow-wrap: break-word;
 }
 
 .storedAuthor {
-    color: #FFFFFF;
     font-size: 1.25em;
-    margin-left: 15px;
     inline-size: 150px;
     overflow-wrap: break-word;
 }
 
 .storedPages {
-    color: #FFFFFF;
     font-size: 1em;
-    margin-left: 15px;
     justify-self: flex-end;
 }
 
@@ -130,10 +107,22 @@ h2 {
     margin-right: 10px;
 }
 
-.readText {
+.removeButton {
+    background-color: #565656;
+    border-radius: 10px;
+    border-style: none;
+    font-size: 16px;
     color: #FFFFFF;
-    margin-right: 20px;
+    height: 2em;
+    position: relative;
 }
+
+.topCard {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Modal and Switch */
 
   .modal {
       display: none;
@@ -207,10 +196,6 @@ h2 {
     background-color: #9E9E9E;
 }
 
-.readText {
-    margin-left: 15px;
-}
-
 .switch {
     position: relative;
     display: inline-block;
@@ -252,11 +237,11 @@ h2 {
   }
   
   input:checked + .slider {
-    background-color: #2196F3;
+    background-color: #288f1f;
   }
   
   input:focus + .slider {
-    box-shadow: 0 0 1px #2196F3;
+    box-shadow: 0 0 1px #288f1f;
   }
   
   input:checked + .slider:before {
@@ -280,19 +265,4 @@ h2 {
 
 #select {
     margin-bottom: 20px;
-}
-
-.removeButton {
-    background-color: #565656;
-    border-radius: 10px;
-    border-style: none;
-    font-size: 16px;
-    color: #FFFFFF;
-    height: 2em;
-    position: relative;
-}
-
-.topCard {
-    display: flex;
-    justify-content: space-between;
 }
