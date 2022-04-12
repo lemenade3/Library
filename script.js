@@ -7,6 +7,7 @@ class Book {
         this.pages = pages;
         this.read = read;
     }
+
 };
 
 function addToLibrary(name) {
