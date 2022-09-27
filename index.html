@@ -20,17 +20,16 @@
     <div id="cardModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <input type="text" placeholder='Name...' class='input' id="name" name="name"><br>
-            <input type="text" placeholder='Author...' class='input' id="author" name="author"><br>
-            <input type="number" placeholder='Pages' class='input' id="pages" name="pages"><br>
-            <div id="bottomModal">
-                <label id="select" class="switch">
-                    <input type="checkbox" id="read">
-                    <span class="slider round"></span>
-                </label>
-                <button id="commitCard">Add Book</button> 
-            </div>
-            
+                <input type="text" placeholder='Name...' class='input' id="name" name="name" required maxlength="50"><br>
+                <input type="text" placeholder='Author...' class='input' id="author" name="author" required><br>
+                <input type="number" placeholder='Pages' class='input' id="pages" name="pages" required min="1"><br>
+                <div id="bottomModal">
+                    <label id="select" class="switch">
+                        <input type="checkbox" id="read">
+                        <span class="slider round"></span>
+                    </label>
+                    <button id="commitCard" type="submit">Add Book</button>
+                </div>
         </div>
     </div>
     
